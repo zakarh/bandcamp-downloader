@@ -144,7 +144,6 @@ def download_artist(url):
 if __name__ == "__main__":
     driver.get("https://bandcamp.com")
     input("Press enter once after preparing browser. E.g. privacy page blocker")
-    target_url = "https://father2006.bandcamp.com/album/reflection"  # Replace with the target website
-    # download_track(target_url)
-    download_album(target_url)
-    # download_artist(target_url)
+    # download_track("https://father2006.bandcamp.com/track/reflection")
+    download_album("https://father2006.bandcamp.com/album/reflection")
+    # download_artist("https://father2006.bandcamp.com/")
