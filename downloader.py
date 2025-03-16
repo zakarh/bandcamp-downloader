@@ -13,14 +13,16 @@ FILE_DIR = Path(__file__).parent
 
 # Configure Selenium WebDriver
 firefox_options = Options()
-firefox_options.binary_location = "C:/Program Files/Mozilla Firefox/firefox.exe"  # Replace with the correct path to Firefox binary
+# Replace with the correct path to Firefox binary
+firefox_options.binary_location = "C:/Program Files/Mozilla Firefox/firefox.exe"  
 # firefox_options.add_argument("--headless")  # Run in headless mode (no UI)
 # firefox_options.add_argument("--disable-gpu")
 firefox_options.add_argument("--window-size=1920x1080")
 
 service = Service(
+    # Replace with your GeckoDriver path
     "driver/geckodriver-v0.35.0-win32/geckodriver.exe"
-)  # Replace with your GeckoDriver path
+)
 driver = webdriver.Firefox(service=service, options=firefox_options)
 
 
@@ -49,7 +51,7 @@ def download_file(url: str, save_path: Path):
 
         print(f"File downloaded: {save_path}")
     except Exception as e:
-        log_download_error(url)
+        log_download_error(save_path)
         print(f"Error downloading file: {e}")
 
 
@@ -143,7 +145,7 @@ def download_artist(url):
 
 if __name__ == "__main__":
     driver.get("https://bandcamp.com")
-    input("Press enter once after preparing browser. E.g. privacy page blocker")
+    input("Press enter once after preparing browser. E.g. By-pass privacy page blocker")
     # download_track("https://father2006.bandcamp.com/track/reflection")
     download_album("https://father2006.bandcamp.com/album/reflection")
     # download_artist("https://father2006.bandcamp.com/")
